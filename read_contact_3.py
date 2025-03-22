@@ -30,13 +30,7 @@ class Contacts:
         wxh = self.read_wstring(prcs, contact_pointer + 0x38)
         nickname = self.read_wstring(prcs, contact_pointer + 0xA8)
         remarks1 = self.read_wstring(prcs, contact_pointer + 0x88)
-        # remarks2 = self.read_wstring(prcs, contact_pointer + 0xA8)
-        # remarks3 = self.read_wstring(prcs, contact_pointer + 0xC8)
-        # _type = prcs.read4ByteNumber(contact_pointer + 0x78+4)
-        flag = prcs.read4ByteNumber(contact_pointer + 0x78+8)
-        if not flag:
-            self.contact_list.append((nickname, wxh, wxid, remarks1) )
-            # print((wxid, wxh, nickname, remarks1, _type, flag))
+        self.contact_list.append((nickname, wxh, wxid, remarks1) )
         return self.get_tree(prcs, tree_pointer)
     
     def run_head(self, prcs, head):
